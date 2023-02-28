@@ -1,6 +1,6 @@
 ﻿namespace api
 {
-    public class EnvironmentVariables
+    public static class EnvironmentVariables
     {
         public const string JWT_SECRET = "JWT_SECRET_KEY";
         public const string DB_CONNECTION_STRING = "DB_CONNECTION_STRING";
