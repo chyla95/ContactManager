@@ -1,0 +1,29 @@
+version: "3.8"
+
+volumes:
+  cm-database-volume:
+
+services:
+
+  cm-database:
+    image: "mcr.microsoft.com/mssql/server"
+    volumes:
+      - cm-database-volume:/sql_data
+    env_file:
+      - ./env/database.env
+    
+  cm-api:
+    build:
+      context: ./api
+      dockerfile: dockerfile.dev
+    image: cm-api
+    ports:
+      - "3000:80"
+    volumes:
+      - ./api/api:/src/api
+      - /src/DockerTest/bin
+      - /src/DockerTest/obj
+    env_file:
+      - ./env/api.env
+    depends_on:
+      - cm-database

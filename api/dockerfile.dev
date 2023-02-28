@@ -1,0 +1,15 @@
+FROM mcr.microsoft.com/dotnet/sdk:7.0
+
+WORKDIR /src
+COPY ["api/api.csproj", "api/"]
+RUN dotnet restore "api/api.csproj"
+COPY . .
+
+ARG PORT=80
+
+WORKDIR "/src/api"
+EXPOSE $PORT
+ENV PORT=$PORT
+ENV DOTNET_URLS=http://+:$PORT
+ENV DOTNET_WATCH_SUPPRESS_LAUNCH_BROWSER=true
+ENTRYPOINT dotnet watch run --urls=http://*:$PORT
