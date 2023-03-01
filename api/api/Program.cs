@@ -29,8 +29,14 @@ builder.Services.AddControllers().AddJsonOptions(options =>
 {
     options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
 });
+//services cors
+builder.Services.AddCors(p => p.AddPolicy("cors-dev", builder =>
+{
+    builder.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
+}));
 
 var app = builder.Build();
+app.UseCors();
 
 #region AutoMigrations
 using (var scope = app.Services.CreateScope())
@@ -50,6 +56,7 @@ if (app.Environment.IsDevelopment()) app.UseSwagger();
 if (app.Environment.IsDevelopment()) app.UseSwaggerUI();
 app.SetupExceptionHandler();
 //app.UseHttpsRedirection();
+if (app.Environment.IsDevelopment()) app.UseCors("cors-dev");
 app.UseAuthentication();
 app.SetupAuthenticationHandler();
 app.UseAuthorization();

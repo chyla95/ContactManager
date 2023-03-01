@@ -1,0 +1,43 @@
+.header {
+  display: flex;
+  
+  margin: 0px 5%;
+  padding: 1rem;
+  border-bottom: 2px solid var(--color-font);
+}
+
+.logo {
+  text-decoration: none;
+}
+
+.logo > h1 {
+  font-size: 2rem;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: var(--color-accent-light);
+  cursor: pointer;
+}
+
+.logo > h1:hover {
+  color: var(--color-accent-dark);
+}
+
+.button {
+  display: flex;
+  margin-left: auto;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--color-accent-light);
+  color: #2a2630;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.button:hover {
+  background-color: var(--color-accent-dark);
+}

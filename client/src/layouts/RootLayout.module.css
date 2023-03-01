@@ -1,0 +1,7 @@
+.page-root {
+  display: flex;
+  flex-direction: column;
+
+  max-width: 1250px;
+  margin: 20px auto;
+}

@@ -1,0 +1,17 @@
+.contact {
+  display: flex;
+  flex-direction: column;
+
+  padding: 20px;
+  background-color: var(--color-accent-light);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+}
+
+.contact:hover {
+  background-color: var(--color-accent-dark);
+}
+
+.full-name {
+  align-self: center;
+}

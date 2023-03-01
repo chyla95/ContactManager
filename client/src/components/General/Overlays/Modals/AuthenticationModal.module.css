@@ -1,0 +1,5 @@
+.modal {
+  border-radius: var(--border-radious);
+  overflow: hidden;
+}
+

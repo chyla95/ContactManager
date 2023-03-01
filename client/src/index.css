@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Rubik&display=swap');
+
+* {
+  box-sizing: border-box;
+  padding: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+html {
+  font-family: "Rubik", "Inter", "Avenir", "Helvetica", "Arial";
+
+  min-height: 100vh;
+  font-size: 1rem;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+
+  --color-light: #202020;
+  --color-dark: #1b1b1b;
+  --color-accent-light: #5186fa;
+  --color-accent-dark: #1756dd;
+  --color-font: #e9dbe1;
+  --color-font-error: #ff3636;
+  --border-radius: 5px;
+}
+
+body {
+  background-color: var(--color-light);
+  color: var(--color-font);
+  margin: 0px;
+  overflow-x: hidden;
+}
+
+.shielded {
+  -webkit-touch-callout: none; 
+    -webkit-user-select: none; 
+     -khtml-user-select: none; 
+       -moz-user-select: none; 
+        -ms-user-select: none; 
+            user-select: none; 
+}
