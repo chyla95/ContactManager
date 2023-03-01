@@ -23,6 +23,9 @@ namespace api.Dtos.Contact
         public string Phone { get; set; }
 
         [Required]
+        public bool IsPublic { get; set; }
+
+        [Required]
         public int CategoryId { get; set; }
 
         [MinLength(3), MaxLength(20)]

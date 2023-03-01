@@ -30,8 +30,18 @@ namespace api.Controllers
             _contextAccessor = contextAccessor;
         }
 
-        [HttpGet]
+        [HttpGet("Public")]
+        [AllowAnonymous]
         public async Task<ActionResult<IEnumerable<ContactResponseDto>>> GetMany()
+        {
+            IEnumerable<Contact> contacts = await _contactService.GetManyPublicOnlyAsync();
+
+            IEnumerable<ContactResponseDto> response = _mapper.Map<IEnumerable<ContactResponseDto>>(contacts);
+            return Ok(response);
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<ContactResponseDto>>> GetManyPublicOnly()
         {
             User user = _contextAccessor.GetUser();
             IEnumerable<Contact> contacts = await _contactService.GetManyByOwnerAsync(user.Id);

@@ -17,6 +17,15 @@ namespace api.Services
             return contacts;
         }
 
+        public virtual async Task<IEnumerable<Contact>> GetManyPublicOnlyAsync(bool isTrackingEnabled = true)
+        {
+            IQueryable<Contact> query = CreateQuery(_dbSet);
+            if (!isTrackingEnabled) query = query.AsNoTracking();
+
+            IEnumerable<Contact> contacts = await query.Where(c => c.IsPublic).ToListAsync();
+            return contacts;
+        }
+
         protected override IQueryable<Contact> CreateQuery(DbSet<Contact> dbSet)
         {
             IQueryable<Contact> query = base.CreateQuery(dbSet)

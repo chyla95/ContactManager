@@ -23,6 +23,9 @@ namespace api.Models
         [MinLength(2), MaxLength(30)]
         public string Phone { get; set; }
 
+        [Required]
+        public bool IsPublic { get; set; }
+
         public Category Category { get; set; }
 
         [MinLength(3), MaxLength(20)]

@@ -14,6 +14,7 @@ namespace api.Dtos.Contact
         public string LastName { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
+        public bool IsPublic { get; set; }
         public CategoryResponseDto Category { get; set; }
         public string? Subcategory { get; set; }
         public DateTime Birthday { get; set; }
