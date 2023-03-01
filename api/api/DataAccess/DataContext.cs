@@ -16,7 +16,13 @@ namespace api.DataAccess
         // Seeding Catrgory data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //modelBuilder.Seed();
+            modelBuilder.Entity<Subcategory>()
+                .HasOne(s => s.Category)
+                .WithMany(c => c.ApplicableSubcategories)
+                .HasForeignKey(s => s.CategoryId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Seed();
         }
     }
 }

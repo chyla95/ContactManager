@@ -27,7 +27,7 @@ namespace api.Middlewares
 
                 if (!isIdValid) throw new HttpUnauthorizedException("Invalid userId!");
 
-                User? user = await userService.GetByIdAsync(userId);
+                User? user = await userService.GetAsync(userId);
                 if (user == null) throw new HttpUnauthorizedException("User does not exist!");
                 contextAccessor.SetUser(user);
             }

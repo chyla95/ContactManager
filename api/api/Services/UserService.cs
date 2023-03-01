@@ -15,13 +15,6 @@ namespace api.Services
             User? user = await query.SingleOrDefaultAsync(e => e.Email == email);
             return user;
         }
-        public async Task<User?> GetByIdAsync(int id)
-        {
-            IQueryable<User> query = CreateQuery(_dbSet);
-
-            User? user = await query.SingleOrDefaultAsync(e => e.Id == id);
-            return user;
-        }
         public async Task<bool> IsEmailTakenAsync(string email, int? userId = null)
         {
             IQueryable<User> query = CreateQuery(_dbSet);

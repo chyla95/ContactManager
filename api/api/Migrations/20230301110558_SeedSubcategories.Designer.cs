@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using api.DataAccess;
 
@@ -11,9 +12,11 @@ using api.DataAccess;
 namespace api.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20230301110558_SeedSubcategories")]
+    partial class SeedSubcategories
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -49,11 +52,6 @@ namespace api.Migrations
                         {
                             Id = 2,
                             Name = "Private"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = "Other"
                         });
                 });
 
@@ -164,7 +162,7 @@ namespace api.Migrations
                         {
                             Id = 6,
                             CategoryId = 2,
-                            Name = "Friend"
+                            Name = "Friends"
                         });
                 });
 

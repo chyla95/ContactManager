@@ -1,6 +1,8 @@
 ﻿using api.Dtos.Authentication;
+using api.Dtos.Category;
 using api.Dtos.Contact;
 using api.Dtos.Exception;
+using api.Dtos.Subcategory;
 using api.Dtos.User;
 using api.Exceptions;
 using api.Models;
@@ -20,6 +22,8 @@ namespace api
             CreateMap<ContactResponseDto, Contact>();
             CreateMap<ContactRequestDto, Contact>();
 
+            CreateMap<Category, CategoryResponseDto>();
+            CreateMap<Subcategory, SubcategoryResponseDto>();
 
             // DTOs - system
             CreateMap<HttpException, HttpExceptionDto>();

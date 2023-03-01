@@ -3,7 +3,10 @@ using api.Extensions.BuilderConfiguration;
 using api.Middlewares;
 using api.Services;
 using api.Utilities.Accessors;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Text.Json.Serialization;
+using System.Text.Json;
 
 // Add services to the container.
 var builder = WebApplication.CreateBuilder(args);
@@ -16,10 +19,16 @@ builder.Services.AddTransient<IEnvironmentVariablesAccessor, EnvironmentVariable
 builder.Services.AddTransient<IContextAccessor, ContextAccessor>();
 builder.Services.AddTransient<IUserService, UserService>();
 builder.Services.AddTransient<IContactService, ContactService>();
+builder.Services.AddTransient<ICategoryService, CategoryService>();
 // Tools and utilities
 builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.SetupAuthentication();
 builder.Services.SetupDatabase();
+// Prevent cyclic response properties
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+});
 
 var app = builder.Build();
 

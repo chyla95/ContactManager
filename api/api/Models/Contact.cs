@@ -23,10 +23,10 @@ namespace api.Models
         [MinLength(2), MaxLength(30)]
         public string Phone { get; set; }
 
-        public Category? Category { get; set; }
+        public Category Category { get; set; }
 
         [MinLength(3), MaxLength(20)]
-        public string? CustomCategory { get; set; }
+        public string? Subcategory { get; set; }
 
         [Required]
         public DateTime Birthday { get; set; }

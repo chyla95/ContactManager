@@ -1,4 +1,5 @@
-﻿using api.Dtos.User;
+﻿using api.Dtos.Category;
+using api.Dtos.User;
 using api.Models;
 using System.ComponentModel.DataAnnotations;
 
@@ -13,8 +14,8 @@ namespace api.Dtos.Contact
         public string LastName { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
-        //public Category? Category { get; set; }
-        public string? CustomCategory { get; set; }
+        public CategoryResponseDto Category { get; set; }
+        public string? Subcategory { get; set; }
         public DateTime Birthday { get; set; }
     }
 #pragma warning restore CS8618
