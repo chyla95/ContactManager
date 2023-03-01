@@ -8,6 +8,15 @@ namespace api.DataAccess
         public DataContext(DbContextOptions<DataContext> options) : base(options) { }
 
         public DbSet<User> Users { get; set; }
+
+        public DbSet<Contact> Contacts { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Subcategory> Subcategories { get; set; }
+
+        // Seeding Catrgory data
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            //modelBuilder.Seed();
+        }
     }
 }
-// dotnet tool install --global dotnet-ef

@@ -15,6 +15,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddTransient<IEnvironmentVariablesAccessor, EnvironmentVariablesAccessor>();
 builder.Services.AddTransient<IContextAccessor, ContextAccessor>();
 builder.Services.AddTransient<IUserService, UserService>();
+builder.Services.AddTransient<IContactService, ContactService>();
 // Tools and utilities
 builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.SetupAuthentication();

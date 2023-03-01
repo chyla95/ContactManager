@@ -1,4 +1,5 @@
 ﻿using api.Dtos.Authentication;
+using api.Dtos.Contact;
 using api.Dtos.Exception;
 using api.Dtos.User;
 using api.Exceptions;
@@ -14,6 +15,10 @@ namespace api
             CreateMap<UserSignUpRequestDto, User>();
 
             CreateMap<User, UserResponseDto>();
+
+            CreateMap<Contact, ContactResponseDto>();
+            CreateMap<ContactResponseDto, Contact>();
+            CreateMap<ContactRequestDto, Contact>();
 
 
             // DTOs - system

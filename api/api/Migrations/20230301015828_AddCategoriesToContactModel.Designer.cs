@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using api.DataAccess;
 
@@ -11,9 +12,11 @@ using api.DataAccess;
 namespace api.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20230301015828_AddCategoriesToContactModel")]
+    partial class AddCategoriesToContactModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -78,19 +81,19 @@ namespace api.Migrations
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
-                    b.Property<int>("OwnerId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Phone")
                         .IsRequired()
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
+                    b.Property<int?>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
 
-                    b.HasIndex("OwnerId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Contacts");
                 });
@@ -103,17 +106,12 @@ namespace api.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("CategoryId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CategoryId");
 
                     b.ToTable("Subcategories");
                 });
@@ -156,27 +154,11 @@ namespace api.Migrations
                         .WithMany()
                         .HasForeignKey("CategoryId");
 
-                    b.HasOne("api.Models.User", "Owner")
+                    b.HasOne("api.Models.User", null)
                         .WithMany("Contacts")
-                        .HasForeignKey("OwnerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserId");
 
                     b.Navigation("Category");
-
-                    b.Navigation("Owner");
-                });
-
-            modelBuilder.Entity("api.Models.Subcategory", b =>
-                {
-                    b.HasOne("api.Models.Category", null)
-                        .WithMany("ApplicableSubcategories")
-                        .HasForeignKey("CategoryId");
-                });
-
-            modelBuilder.Entity("api.Models.Category", b =>
-                {
-                    b.Navigation("ApplicableSubcategories");
                 });
 
             modelBuilder.Entity("api.Models.User", b =>

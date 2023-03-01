@@ -14,7 +14,9 @@ namespace api.Models
     {
         [Required]
         [EmailAddress]
+        [MaxLength(50)]
         public string Email { get; set; }
+
         [Required]
         [MinLength(5), MaxLength(100)]
         public string Password
@@ -37,6 +39,8 @@ namespace api.Models
             }
         }
         private string _password;
+
+        public IEnumerable<Contact>? Contacts { get; set; }
 
         private static string EncryptPassword(string password)
         {
