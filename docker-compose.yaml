@@ -7,6 +7,8 @@ services:
 
   cm-database:
     image: "mcr.microsoft.com/mssql/server"
+    ports:
+      - "1433:1433"
     volumes:
       - cm-database-volume:/sql_data
     env_file:
