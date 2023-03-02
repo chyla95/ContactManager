@@ -1,0 +1,13 @@
+.page-root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  
+  margin-bottom: 20px;
+}

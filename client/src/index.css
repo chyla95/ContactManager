@@ -17,11 +17,11 @@ html {
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 
-  --color-light: #202020;
+  --color-light: #2c2c2c;
   --color-dark: #1b1b1b;
   --color-accent-light: #5186fa;
   --color-accent-dark: #1756dd;
-  --color-font: #e9dbe1;
+  --color-font: #e9efff;
   --color-font-error: #ff3636;
   --border-radius: 5px;
 }
@@ -40,4 +40,26 @@ body {
        -moz-user-select: none; 
         -ms-user-select: none; 
             user-select: none; 
+}
+
+a {
+  color: var(--color-font);
+}
+
+a:hover {
+  color: #cfcfcf;
+}
+
+button {
+  cursor: pointer;
+  font: inherit;
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--color-accent-light);
+  color: var(--color-font);
+}
+
+button:hover {
+  background-color: var(--color-accent-dark);
 }

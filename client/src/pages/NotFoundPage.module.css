@@ -1,0 +1,12 @@
+.page-root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 10px;
+}
+
+.page-root a {
+  color: var(--color-accent-light);
+}
+

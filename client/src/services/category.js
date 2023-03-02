@@ -1,9 +1,9 @@
 import axios from "axios";
 
-export const getUser = async (token) => {
+export const getCategories = async (token) => {
   let response = {};
   try {
-    const r = await axios.get("http://localhost:3000/api/User", {
+    const r = await axios.get("http://localhost:3000/api/Category", {
       headers: {
         Authorization: "Bearer " + token,
       },

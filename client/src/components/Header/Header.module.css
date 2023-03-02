@@ -4,6 +4,7 @@
   margin: 0px 5%;
   padding: 1rem;
   border-bottom: 2px solid var(--color-font);
+  gap: 30px;
 }
 
 .logo {
@@ -21,6 +22,11 @@
 
 .logo > h1:hover {
   color: var(--color-accent-dark);
+}
+
+.header > a {
+  display: inline-flex;
+  align-items: center;
 }
 
 .button {

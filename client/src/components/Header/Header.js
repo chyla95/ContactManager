@@ -2,13 +2,14 @@ import { useState } from "react";
 import { MdContacts, MdLogin, MdLogout, MdMessage } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { deauthenticateActionCreator } from "../../store/auth-slice";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import classes from "./Header.module.css";
 import AuthenticationModal from "../General/Overlays/Modals/AuthenticationModal";
 
 function Header(props) {
   const { token } = useSelector((state) => state.auth);
   const { user } = useSelector((state) => state.user);
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
   const [isAuthenticationModalVisible, setIsAuthenticationModalVisible] =
@@ -23,6 +24,7 @@ function Header(props) {
 
   const signOutHandler = () => {
     dispatch(deauthenticateActionCreator());
+    navigate("/");
   };
 
   return (
@@ -37,6 +39,12 @@ function Header(props) {
           Contacts
         </h1>
       </NavLink>
+
+      {token && user && (
+        <NavLink to="/private-contacts" end>
+          Private Contacts
+        </NavLink>
+      )}
 
       {!token && (
         <button className={classes.button} onClick={showAuthenticationModal}>

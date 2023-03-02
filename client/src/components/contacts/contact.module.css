@@ -5,11 +5,13 @@
   padding: 20px;
   background-color: var(--color-accent-light);
   border-radius: var(--border-radius);
-  cursor: pointer;
 }
 
-.contact:hover {
+.interactive-contact:hover {
+  transform: scale(1.025);
+  transition: .5s;
   background-color: var(--color-accent-dark);
+  cursor: pointer;
 }
 
 .full-name {
