@@ -29,3 +29,16 @@ services:
       - ./env/api.env
     depends_on:
       - cm-database
+
+  cm-client: 
+    build:
+      context: ./client
+      dockerfile: dockerfile.dev
+    image: cm-client
+    ports:
+      - "3005:3000"
+    volumes:
+      - ./client:/src
+      - /src/node_modules
+    depends_on:
+      - cm-api
