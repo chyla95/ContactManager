@@ -51,13 +51,14 @@ const ContactForm = (props) => {
     const value = event.target.value;
 
     let subcategoryName = "";
-    if (isNaN(value)) {
+    if (isNaN(value) || value === "") {
       subcategoryName = value;
     } else {
       subcategoryName = category.applicableSubcategories.find(
         (as) => as.id == value
       ).name;
     }
+    console.log(value);
 
     setSubcategory(subcategoryName);
   };
@@ -87,7 +88,7 @@ const ContactForm = (props) => {
     setCategory(currentCategory);
     setSubcategory(props.contact.subcategory);
     setIsPublic(props.contact.isPublic);
-  }, []);
+  }, [props.categories, props.mode, props.contact]);
 
   let areCustomSubcateroriesAllowed = true;
   if (
@@ -131,7 +132,7 @@ const ContactForm = (props) => {
   }
 
   const deleteContactHandler = async (event) => {
-    const response = await deletePrivateContact(props.contact.id, token);
+    await deletePrivateContact(props.contact.id, token);
     navigate("/private-contacts");
   };
 

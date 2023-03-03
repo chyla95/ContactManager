@@ -2,7 +2,7 @@ import { MdLock } from "react-icons/md";
 import { useSelector } from "react-redux";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import Contacts from "../components/contacts/Contacts";
-import { getPrivateContacts, getPublicContacts } from "../services/contact";
+import { getPrivateContacts } from "../services/contact";
 import store from "../store/store";
 import styles from "./PrivateContactsPage.module.css";
 
